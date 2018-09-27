@@ -39,6 +39,8 @@ a:active {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 999;
+  transition: all 1s;
 }
 .lt_aside .brand {
   width: 180px;
@@ -79,6 +81,57 @@ a:active {
   padding-left: 40px;
   border-left: 3px solid transparent;
 }
+
+.lt_aside .nav .child a {
+  padding-left: 63px;
+}
 .lt_aside .nav i {
   margin-right: 5px;
+}
+.lt_aside.hidemenu {
+  left: -180px;
+}
+
+.lt_aside .nav a.current {
+  background-color: #1D1F21;
+  border-left: 3px solid #006699;
+}
+/* .lt_main */
+.lt_main {
+  height: 2000px;
+  padding-top: 50px;
+  padding-left: 180px;
+  transition: all 1s;
+}
+.lt_main .lt-topbar {
+  width: 100%;
+  height: 50px;
+  background-color: #508CB8;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding-left: 180px;
+  transition: all 1s;
+}
+.lt-topbar.hidemenu {
+  padding-left: 0;
+}
+.lt_main .lt-topbar a{
+  width: 50px;
+  height: 50px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+}
+.lt_main.hidemenu {
+  padding-left: 0;
+}
+
+.breadcrumb {
+  margin-top: 20px;
+}
+
+.red {
+  color: #A94442;
 }
