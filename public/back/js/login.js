@@ -1,5 +1,4 @@
 $(function() {
-
   $('#form').bootstrapValidator({
     // 校验图标
     feedbackIcons: {
@@ -43,6 +42,7 @@ $(function() {
   })
 })
 
+// 登陆
 $('#form').on("success.form.bv", function(e) {
   e.preventDefault();
 
@@ -65,6 +65,7 @@ $('#form').on("success.form.bv", function(e) {
   })
 })
 
+//重置
 $('[type="reset"]').click(function() {
   $('#form').data("bootstrapValidator").resetForm();
 })
