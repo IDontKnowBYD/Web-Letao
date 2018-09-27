@@ -142,3 +142,11 @@ a:active {
   width: 48%;
   height: 400px;
 }
+
+/* table */
+.table.table-bordered tr th,
+.table.table-bordered tr td {
+  text-align: center;
+  /* 表格中垂直对齐方式 */
+  vertical-align: middle;
+}
