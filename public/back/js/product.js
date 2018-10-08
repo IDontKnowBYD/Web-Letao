@@ -40,4 +40,8 @@ $(function () {
 
   render(currentPage, pageSize);
 
+  // 打开模态框
+  $('.addPro').click(function () {
+    $('#addModal').modal('show');
+  })
 })
