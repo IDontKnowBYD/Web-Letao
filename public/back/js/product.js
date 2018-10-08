@@ -87,7 +87,6 @@ $(function () {
       },
       dataType: "json",
       success: function (info) {
-        console.log(info)
         var htmlStr = template("dropdownTpl", info);
         $(".dropdown-menu").html(htmlStr);
       }
@@ -102,6 +101,7 @@ $(function () {
     var id = $(this).data("id");
     $('[name="brandId"]').val(id);
 
+    $('#form').data("bootstrapValidator").updateStatus("brandId", "VALID");
   });
 
   //图片上传
@@ -119,6 +119,86 @@ $(function () {
         $('#imgBox img:last-of-type').remove();
         picArr.pop();
       }
+
+      if (picArr.length === 3) {
+        $('#form').data("bootstrapValidator").updateStatus("picStatus", "VALID");
+      }
     }
   })
+
+  //表单验证
+  $('#form').bootstrapValidator({
+    excluded: [],
+    feedbackIcons: {
+      valid: 'glyphicon glyphicon-ok',      
+      invalid: 'glyphicon glyphicon-remove',   
+      validating: 'glyphicon glyphicon-refresh'  
+    },
+    fields: {
+      brandId: {
+        validators: {
+          notEmpty: {
+            message: "请选择二级分类"
+          }
+        }
+      },
+      proName: {
+        validators: {
+          notEmpty: {
+            message: "请输入商品名称"
+          }
+        }
+      },
+      proDesc: {
+        validators: {
+          notEmpty: {
+            message: "请输入商品描述"
+          }
+        }
+      },
+      num: {
+        validators: {
+          notEmpty: {
+            message: "请输入商品库存"
+          },
+          regexp: {
+            regexp: /^[1-9]\d*$/,
+            message: '商品库存必须是非零开头的数字'
+          }
+        }
+      },
+      size: {
+        validators: {
+          notEmpty: {
+            message: "请输入商品库存"
+          },
+          regexp: {
+            regexp: /^\d{2}-\d{2}$/,
+            message: '要求尺码为 xx-xx 的格式, 例如 32-40'
+          }
+        }
+      },
+      price: {
+        validators: {
+          notEmpty: {
+            message: "请输入商品现价"
+          }
+        }
+      },
+      oldPrice: {
+        validators: {
+          notEmpty: {
+            message: "请输入商品原价"
+          }
+        }
+      },
+      picStatus: {
+        validators: {
+          notEmpty: {
+            message: "请上传三张图片"
+          }
+        }
+      }
+    }
+  });
 })
