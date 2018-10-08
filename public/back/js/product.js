@@ -201,4 +201,35 @@ $(function () {
       }
     }
   });
+
+  //提交上传
+  $('#form').on("success.form.bv", function (e) {
+    e.preventDefault();
+
+    var paramsStr = $('#form').serialize();
+    paramsStr += "&picName1=" + picArr[0].picName + "&picAddr1=" + picArr[0].picAddr;
+    paramsStr += "&picName2=" + picArr[1].picName + "&picAddr2=" + picArr[1].picAddr;
+    paramsStr += "&picName3=" + picArr[2].picName + "&picAddr3=" + picArr[2].picAddr;
+
+    $.ajax({
+      type: "post",
+      url: "/product/addProduct",
+      data: paramsStr,
+      dataType: "json",
+      success: function (info) {
+        if (info.success) {
+          $('#addModal').modal("hide");
+
+          currentPage = 1;
+          render(currentPage, pageSize);
+   
+          $('#form').data("bootstrapValidator").resetForm(true);
+
+          $('#dropdownTxt').text("请选择二级分类");
+          $('#imgBox img').remove();
+          picArr = []; 
+        }
+      }
+    })
+  });
 })
