@@ -92,8 +92,6 @@ $(function () {
 
       $('#form').data("bootstrapValidator").updateStatus("brandLogo", "VALID");
     }
-
-    
   });
 
   //校验
