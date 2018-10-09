@@ -15,3 +15,30 @@
   right: 10px;
   border-radius: 0 5px 5px 0;
 }
+
+.lt_history {
+  padding: 10px;
+  font-size: 12px;
+  color: #666;
+}
+.lt_history .title {
+  height: 30px;
+  line-height: 30px;
+}
+.lt_history .content {
+  border: 1px dashed red;
+}
+.lt_history .content li {
+  border-bottom: 1px dashed red;
+  height: 30px;
+  line-height: 30px;
+}
+.lt_history .content li i{
+  line-height: 30px;
+}
+.lt_history .content li:last-child {
+  border: none;
+}
+.lt_history .content li a {
+  padding: 0 10px;
+}
