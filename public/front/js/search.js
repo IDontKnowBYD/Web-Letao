@@ -62,5 +62,7 @@ $(function () {
     render();
 
     $('.search_input').val("");
+
+    location.href = "searchList.html?key=" + val;
   })
 });
